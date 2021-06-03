@@ -1,0 +1,259 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+form {
+  border: 3px solid #f1f1f1;
+  width: 40%;
+  align-items: center;
+  margin-left: 30%;
+  margin-top: 2%;
+  margin-bottom: 5%;
+}
+h1.learner_signup_head {
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 0;
+}
+h4.learner_signup_head {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 30%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h4.recruiter_head span {
+  background-color: red;
+}
+
+h4.mentor_head span {
+  background-color: orange;
+}
+
+span {
+  background-color: greenyellow;
+  padding: 3px 6px;
+  border-radius: 5px;
+}
+input[type='text'],
+input[type='password'] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #04aa6d;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 5px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+  .cancelbtn {
+    width: 100%;
+  }
+}
+
+/* css for learner profile
+ */
+
+div.profile_container {
+  display: flex;
+  flex-direction: column;
+}
+
+div.profile {
+  display: flex;
+  flex-direction: row;
+}
+
+div.profile_personal_details {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+}
+hr {
+  color: red;
+}
+div.photoandlocation {
+  width: 20%;
+  height: 20%;
+  margin-left: 2%;
+}
+div.emailandcontact {
+  width: 40%;
+  margin-top: 4%;
+}
+div.gradeclass {
+  width: 40%;
+  margin-top: 4%;
+}
+div.profileproject {
+  display: flex;
+  flex-direction: row;
+}
+div.experience {
+  width: 20%;
+  margin-top: 4%;
+  margin-left: 2%;
+}
+div.experience div {
+  margin: 20% 2%;
+}
+div.projectoflearner {
+  width: 80%;
+  padding-left: 3%;
+}
+.project {
+  background-color: green;
+  padding: 1%;
+}
+.projectname {
+  display: flex;
+  flex-direction: row;
+}
+.projectname div {
+  padding-right: 40%;
+}
+
+.socialinfo {
+  height: 150px;
+  width: 83%;
+  background-color: lightseagreen;
+  float: right;
+  margin: 20px;
+  border-radius: 5px;
+}
+.learnerimage {
+  height: 155px;
+  width: 10%;
+  background-color: rgb(255, 94, 0);
+  float: left;
+  margin: 20px;
+  border: 3px solid black;
+}
+
+.infobarr {
+  float: left;
+  margin: 20px;
+  width: 14%;
+  background-color: lightseagreen;
+  float: left;
+  border-radius: 5px;
+}
+
+.picandinfo {
+  height: 200px;
+}
+
+.projectbarr {
+  float: right;
+  width: 70%;
+  margin: 20px;
+  background-color: lightsalmon;
+  border-radius: 5px;
+}
+
+.projectnamebar {
+  float: left;
+  width : 70%;
+  margin-left: 20px;
+}
+
+.projectapplybar{
+  float: right;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.projectdetailsbar {
+  margin-left: 20px;
+  width : 70%; 
+}
+
+.learnerbaseinfo{
+  padding : 5px;
+  border: 2px solid black;
+  margin: 10px;
+  width: fit-content;
+  background-color: blanchedalmond;
+}
+
+.learnerbasedowninfo {
+  padding : 5px;
+  border: 2px solid black;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: blanchedalmond;
+}
+
+.addprojectandinfo {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 10px;
+}
+
+#buttonofedit{
+  font-size: 17px;
+  background-color: green;
+  padding: 10px;
+}
+
+.gotooppurtunity {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 10px;
+}
