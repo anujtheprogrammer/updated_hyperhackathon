@@ -30,7 +30,7 @@ const Mentorsignup = ()=>{
     }
 
     return (<div>
-        <div>
+        <div className="tochangecenter">
         <h1 className="mentor_signup_head">Signup</h1>
         <h4 className="mentor_signup_head mentor_head"><span>mentor</span></h4>
     </div>

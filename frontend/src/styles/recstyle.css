@@ -190,3 +190,9 @@ margin-right: auto;
     margin: 10px;
     background-color: white;
 }
+
+.recruiterlogout {
+    width: 10%;
+    float: right;
+    margin-right: 10px;
+}

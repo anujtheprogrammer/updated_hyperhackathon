@@ -30,7 +30,7 @@ const Recruitersignup = ()=>{
     }
 
     return (<div>
-        <div>
+        <div className="tochangecenter">
         <h1 className="recruiter_signup_head">Signup</h1>
         <h4 className="recruiter_signup_head recruiter_head"><span>recruiter</span></h4>
     </div>

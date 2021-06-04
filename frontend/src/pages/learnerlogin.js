@@ -35,7 +35,7 @@ const Learnerlogin = ()=>{
 
 
     return (<div>
-        <div>
+        <div className="tochangecenter">
         <h1 className="learner_login_head">Login</h1>
         <h4 className="learner_login_head learner_head"><span>learner</span></h4>
     </div>

@@ -17,7 +17,9 @@ const Mentorlanding = ()=>{
 
     return(
         <div>
-            
+         <div class="recruiterlogout">
+            <Link to="/"><button id="buttonofedit">LogOut</button></Link>
+    </div>   
     <div class="center">{localStorage.getItem("mentor-name")}</div>
     <div class="containerrecland">
     {   

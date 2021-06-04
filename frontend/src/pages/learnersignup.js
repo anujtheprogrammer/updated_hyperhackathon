@@ -36,7 +36,7 @@ const Learnersignup = ()=>{
     <div>
 
         {signup && <div style={{backgroundColor : "yellow", padding: "10px"}}>You are signed up successfully   </div>}
-        <div>
+        <div className="tochangecenter">
         <h1 className="learner_signup_head">Signup</h1>
         <h4 className="learner_signup_head learner_head"><span>learner</span></h4>
     </div>

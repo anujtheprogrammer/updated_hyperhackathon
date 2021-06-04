@@ -134,3 +134,9 @@ span {
 .recruiter_span {
   background-color: red;
 }
+
+.tochangecenter {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}

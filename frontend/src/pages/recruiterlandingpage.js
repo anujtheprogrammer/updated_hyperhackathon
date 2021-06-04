@@ -17,11 +17,14 @@ const Recruiterlandpage = ()=>{
     return (
 
     <div>
-      
+      <div class="recruiterlogout">
+            <Link to="/"><button id="buttonofedit">LogOut</button></Link>
+    </div>
     <div className="center">{localStorage.getItem("recruiter-name")}</div>
     <div className="buttonpost">
         <Link to="/addpost"><button type="submit" >Add New Job</button></Link>
     </div>
+    
     
     <div className="containerrecland">
         {   
