@@ -20,15 +20,16 @@ const Recruiterlogin = ()=>{
             password: recruiterpassword
         }
 
-        const response = await axios.post("http://localhost:5000/api/auth", body)
+        const response = await axios.post("http://localhost:5000/api/mentorauth", body)
         console.log(response)
         if(response.data.token){
-            localStorage.setItem("Token", response.data.token)
+            localStorage.setItem("recruiter-token", response.data.token)
+            localStorage.setItem("recruiter-name", response.data.name)
             setlogin(true);   
         } 
     }
     if(login){
-        history.push('/oppurtunity');
+        history.push('/recruiterlandpage');
     }
 
     return (<div>
@@ -47,7 +48,8 @@ const Recruiterlogin = ()=>{
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" value={recruiterpassword} onChange={(e)=>setrecruiterpassword(e.target.value)} required></input>
                 
-            <Link to="/recruiterlandpage"><button type="submit">Login</button></Link>
+            <button type="submit">Login</button>
+            {/* <Link to="/recruiterlandpage"><button type="submit">Login</button></Link> */}
             
         </div>
 

@@ -54,10 +54,10 @@ router.post('/',
 
 
 // @route   GET api/addpost
-// @desc    Get all projects
+// @desc    Get all post
 // @access  Private
 
-router.get('/', auth, async(req, res) => {
+router.get('/', async(req, res) => {
     try {
         const posts = await Post.find();
         res.json(posts);

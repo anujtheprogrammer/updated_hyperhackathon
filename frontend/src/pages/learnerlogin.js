@@ -23,6 +23,8 @@ const Learnerlogin = ()=>{
         console.log(response)
         if(response.data.token){
             localStorage.setItem("learner-token", response.data.token)
+            localStorage.setItem("learner-name", response.data.name)
+            localStorage.setItem("learner-email", response.data.email)
             setlogin(true);   
         }
          
@@ -48,7 +50,8 @@ const Learnerlogin = ()=>{
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" value={learnerpassword} onChange={(e)=>setlearnerpassword(e.target.value)} required></input>
                 
-            <Link to="/learnerprofile"><button type="submit">Login</button></Link>
+            <button type="submit">Login</button>
+            {/* <Link to="/learnerprofile"><button type="submit">Login</button></Link> */}
             
         </div>
 

@@ -1,9 +1,11 @@
 import React, {useState} from 'react'
-import {Link} from "react-router-dom"
+import {Link, Redirect} from "react-router-dom"
+import {useHistory} from "react-router-dom"
 import axios from "axios"
 import "../styles/landingcss.css"
 
 const Learnerupdatedetails = ()=>{
+    const [lname, setLname] = useState(localStorage.getItem('learner-name'))
     const [number, setNumber] = useState("")
     const [location, setLocation] = useState("")
     const [education, setEducation] = useState("")
@@ -11,9 +13,11 @@ const Learnerupdatedetails = ()=>{
     const [experience, setExperience] = useState("")
     const [skills, setSkills] = useState("")
 
+    const history = useHistory();
     const handleUpdateProfile =async (e) => {
         e.preventDefault()
         const body =  {
+         lname,
          contact_number : number,
          github ,
          education,
@@ -26,13 +30,17 @@ const Learnerupdatedetails = ()=>{
      
      const headers ={
          "Content-Type" : "application/json",
-        "x-auth-token" : token
+         "x-auth-token" : token
      }
 
      const response = await axios.post("http://localhost:5000/api/profile", body , {
        headers: headers
      })
      console.log(response)
+     if(response.data.user){
+         localStorage.setItem("learner-name",response.data.lname)
+        history.push('/learnerprofile');
+     }
      }
 
     return (<div>
@@ -44,7 +52,7 @@ const Learnerupdatedetails = ()=>{
         
         <div className="container">
         <label for="uname"><b>Learner Name</b></label>
-            <input type="text" placeholder="Enter Github Profile link"  value={github} onChange={(e) => setGithub(e.target.value)} required></input>
+            <input type="text" placeholder="Enter Github Profile link"  value={lname} onChange={(e) => setLname(e.target.value)} required></input>
 
             <label for="uname"><b>Contact number</b></label>
             <input type="text" placeholder="Enter Contact number" value={number} onChange={(e) => setNumber(e.target.value)} required></input>
@@ -64,7 +72,8 @@ const Learnerupdatedetails = ()=>{
             <label for="uname"><b>Github Profile</b></label>
             <input type="text" placeholder="Enter Github Profile link"  value={github} onChange={(e) => setGithub(e.target.value)} required></input>
 
-            <Link to="/learnerprofile"><button type="submit">UPDATE</button></Link>
+            <button type="submit">UPDATE</button>
+            {/* <Link to="/learnerprofile"><button type="submit">UPDATE</button></Link> */}
 
         </div>
 

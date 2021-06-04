@@ -1,43 +1,34 @@
-import React from 'react'
+import React ,{useEffect,useState} from 'react'
+import axios from 'axios'
 import "../styles/recstyle.css"
 
 const Oppurtunity = ()=>{
+    const[postarray,setPostarray] = useState([])
+
+    useEffect(async()=>{
+        const response = await axios.get("http://localhost:5000/api/addpost")
+        console.log(response)
+        if(response.data){
+            setPostarray(response.data);
+        }
+    },[])
+
     return (
     <div>
         <div className="contain">
         <div className="head">Opportunity Available</div>
-        <div className="oppurt">
-        <div className="aply">Apply</div>
-        <div className="nme">name</div>
-        <div className="loon">Location</div>
-        <div className="abus">Lorem ipsum dolor sit amr eleifend sollicitudin. In quis dictum risus, et consectetur ligulaLorem ipsum dolor sit amr eleifend sollicitudin. In quis dictum risus, et consecteLorem ipsum dolor sit amr eleifend sollicitudin. In quis dictum risus, et consectetur ligula.tur ligula..</div>
-        <div className="resp">Lorem ipsum dolor sit amr eleifend sollicitudin. In , et consectetur ligulaLorem ipsum dolor sit amr eleifend sollicitudin. In quis dictum risus, et conquis dictum risus, et consectetur ligulaLorem ipsum dolor sit amr eleifend sollicitudin. In quis dictum risus, et consecteLorem ipsum dolor sit amr eleifend sollicitudin. In quis dictum risus, et consectetur ligula.tur ligula..</div>
-        <div className="salandreq">salary and requirement</div>
-        </div>
-        <div className="oppurt">
+        {   
+        postarray && postarray.map(post=>{
+            return  <div className="oppurt">
             <div className="aply">Apply</div>
-            <div className="nme">name</div>
-            <div className="loon">Location</div>
-            <div className="abus">about us</div>
-            <div className="resp">responsiblity</div>
-            <div className="salandreq">salary and requirement</div>
+            <div className="nme">{post.name}</div>
+            <div className="loon">{post.location}</div>
+            <div className="abus">{post.about_company}</div>
+            <div className="resp">{post.responsibility}</div>
+            <div className="salandreq">{post.requirements}</div>
         </div>
-        <div className="oppurt">
-            <div className="aply">Apply</div>
-            <div className="nme">name</div>
-            <div className="loon">Location</div>
-            <div className="abus">about us</div>
-            <div className="resp">responsiblity</div>
-            <div className="salandreq">salary and requirement</div>
-        </div>
-        <div className="oppurt">
-            <div className="aply">Apply</div>
-            <div className="nme">name</div>
-            <div className="loon">Location</div>
-            <div className="abus">about us</div>
-            <div className="resp">responsiblity</div>
-            <div className="salandreq">salary and requirement</div>
-        </div>
+        })     
+        }
         </div>
     </div>
     )

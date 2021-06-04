@@ -1,4 +1,5 @@
 const express = require('express');
+const mongoose  = require('mongoose');
 const request = require('request');
 const config = require('config');
 const router = express.Router();
@@ -16,9 +17,10 @@ const Learner = require('../../models/Learner');
 
 router.get('/me', auth, async(req, res) =>{
     try {
-        
-        const profile = await Profile.findOne({user : req.user.id}).
+        console.log(req.user)
+        const profile = await Profile.findOne({user :  req.user.id}).
         populate('learner',['name']);
+        console.log(profile)
         if(!profile){
             return res.status(400).json({msg:'There is no profile for this user'});
         }
@@ -59,11 +61,11 @@ router.post('/', auth ,async (req,res)=>{
     if(lname) profileFeilds.lname = lname;
 
     try {
-        let profile = await Profile.findOne({user : req.user.id});
+        let profile = await Profile.findOne({user : req.user._id});
 
         if(profile){
             // update this profile if found
-            Profile = await Profile.findByIdAndUpdate({user : req.user.id}, {$set: profileFeilds}, {new:true});
+            Profile = await Profile.findByIdAndUpdate({user : req.user._id}, {$set: profileFeilds}, {new:true});
 
             return res.json(profile);
         }

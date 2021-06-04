@@ -23,6 +23,7 @@ router.post('/',
         ]
     ], 
     async (req, res) => {
+        console.log("efrsd")
         const errors = validationResult(req);
        
         if(!errors.isEmpty()){
@@ -32,7 +33,8 @@ router.post('/',
         try {
             
             const user = await Learner.findById(req.user.id).select('-password');
-            //console.log("hi1");
+            console.log("hi1");
+            console.log(user)
             const newPost =  new Projectt({
                 project_name: req.body.project_name,
                 tech_skill: req.body.tech_skill,
@@ -41,6 +43,7 @@ router.post('/',
             });
             //console.log("hi");
             const post = await newPost.save();
+            console.log(post);
             res.json(post);
         } catch (err) {
             console.error(err.message);
@@ -57,6 +60,7 @@ router.post('/',
 router.get('/', auth, async(req, res) => {
     try {
         const posts = await Projectt.find();
+        console.log(posts)
         res.json(posts);
     } catch (err) {
         console.error(err.message);

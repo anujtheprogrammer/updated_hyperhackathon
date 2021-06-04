@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import axios from "axios"
+import {useHistory} from "react-router-dom"
 import "../styles/landingcss.css"
 
 const Addproject = ()=>{
@@ -8,6 +9,7 @@ const Addproject = ()=>{
     const [projectDesc, setProjectDesc] = useState("")
     const [github, setGithub] = useState("")
 
+    const history = useHistory();
     const handleUpdateProject =async (e) => {
         e.preventDefault()
         const body =  {
@@ -27,6 +29,9 @@ const Addproject = ()=>{
        headers: headers
      })
      console.log(response)
+     if(response.data.user){
+       history.push('/learnerprofile');
+    }
      }
 
     return (<div>
@@ -42,7 +47,7 @@ const Addproject = ()=>{
             <input type="text" placeholder="What is your project name? tell us" value={project} onChange={(e)=>setProject(e.target.value)} required></input>
 
             <label for="psw"><b>Technologies Used</b></label>
-            <input type="password" placeholder="Write the Technologies used in your project separated by commas" value={technologies} onChange={(e)=>setTechnologies(e.target.value)} required></input>
+            <input type="text" placeholder="Write the Technologies used in your project separated by commas" value={technologies} onChange={(e)=>setTechnologies(e.target.value)} required></input>
                 
             <label for="uname"><b>Project Description</b></label>
             <input type="text" placeholder="Project Description please" value={projectDesc} onChange={(e)=>setProjectDesc(e.target.value)} required></input>

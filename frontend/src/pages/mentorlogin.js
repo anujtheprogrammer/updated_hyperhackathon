@@ -11,7 +11,7 @@ const Mentorlogin = ()=>{
     //const [error, setError] =useState('')
 
     const history = useHistory();
-    const onlogin =async (e)=>{
+    const onlogin = async (e)=>{
         e.preventDefault();
         console.log("hii")
         console.log(mentorpassword,mentoremail);
@@ -19,11 +19,15 @@ const Mentorlogin = ()=>{
             email: mentoremail,
             password: mentorpassword
         }
-
-        const response = await axios.post("http://localhost:5000/api/auth", body)
+        console.log("jeyy")
+        const response = await axios.post("http://localhost:5000/api/mentorauth", body)
+        console.log("jeyy")
         console.log(response)
+        console.log("jeyy")
         if(response.data.token){
-            localStorage.setItem("Token", response.data.token)
+            localStorage.setItem("mentor-token", response.data.token)
+            localStorage.setItem("mentor-name", response.data.name)
+            localStorage.setItem("mentor-email", response.data.email)
             setlogin(true);   
         }    
 
@@ -32,7 +36,7 @@ const Mentorlogin = ()=>{
         }
     }
     if(login){
-        history.push('/oppurtunity');
+        history.push('/mentorlandpage');
     }
 
     return (<div>
@@ -51,7 +55,8 @@ const Mentorlogin = ()=>{
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" value={mentorpassword} onChange={(e)=>setmentorpassword(e.target.value)} required></input>
                 
-            <Link to="/mentorlandpage"><button type="submit">Login</button></Link>
+            {/* <Link to="/mentorlandpage"><button type="submit">Login</button></Link> */}
+            <button type="submit">Login</button>
             
         </div>
 

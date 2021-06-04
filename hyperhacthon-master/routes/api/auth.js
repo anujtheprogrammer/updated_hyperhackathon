@@ -31,6 +31,8 @@ router.post('/', [
             res.status(400).json({errors: [{msg: 'invalid credentials' }] });
         }
 
+        console.log(learner);
+
         const isMatch = await bcrypt.compare(password,learner.password);
 
         if(!isMatch){
@@ -48,7 +50,7 @@ router.post('/', [
             {expiresIn : 3600000}, 
             (err ,token)=>{
                 if(err) throw err;
-                res.json({ token });
+                res.json({ token,name:learner.name,email  });
             });
 
     } catch (err) {

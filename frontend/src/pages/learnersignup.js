@@ -19,7 +19,6 @@ const Learnersignup = ()=>{
             name : learnername,
             email : learneremail,
             password: learnerpassword,
-            usertype: "learner"
         }
        const response = await axios.post("http://localhost:5000/api/learner", body)
        console.log(response)
@@ -55,7 +54,8 @@ const Learnersignup = ()=>{
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" value={learnerpassword} onChange={(e)=>setlearnerpassword(e.target.value)} required></input>
                 
-            <Link to="/learner-login"><button type="submit" >SIGNUP</button></Link>
+            <button type="submit" >SIGNUP</button>
+          {/* <Link to="/learner-login"><button type="submit" >SIGNUP</button></Link> */}
             
         </div>
 

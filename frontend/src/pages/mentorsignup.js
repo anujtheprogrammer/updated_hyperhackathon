@@ -17,10 +17,9 @@ const Mentorsignup = ()=>{
         const body = {
             name : mentorname,
             email : mentoremail,
-            password: mentorpassword,
-            usertype: "mentor"
+            password: mentorpassword
         }
-        const response = await axios.post("http://localhost:5000/api/learner", body)
+        const response = await axios.post("http://localhost:5000/api/mentor", body)
        console.log(response)
        if(response.data.token){
        setsignup(true); 
@@ -48,7 +47,8 @@ const Mentorsignup = ()=>{
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" value={mentorpassword} onChange={(e)=>setmentorpassword(e.target.value)} required></input>
                 
-            <Link to="/mentor-login"><button type="submit" >SIGNUP</button></Link>
+            <button type="submit" >SIGNUP</button>
+            {/* <Link to="/mentor-login"><button type="submit" >SIGNUP</button></Link> */}
             
         </div>
 

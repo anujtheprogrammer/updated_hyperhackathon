@@ -17,10 +17,9 @@ const Recruitersignup = ()=>{
         const body = {
             name : recruitername,
             email : recruiteremail,
-            password: recruiterpassword,
-            usertype: "recruiter"
+            password: recruiterpassword
         }
-        const response = await axios.post("http://localhost:5000/api/learner", body)
+        const response = await axios.post("http://localhost:5000/api/mentor", body)
        console.log(response)
        if(response.data.token){
        setsignup(true); 
@@ -50,7 +49,8 @@ const Recruitersignup = ()=>{
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" value={recruiterpassword} onChange={(e)=>setrecruiterpassword(e.target.value)} required></input>
                 
-            <Link to="/recruiter-login"><button type="submit" >SIGNUP</button></Link>
+            <button type="submit" >SIGNUP</button>
+            {/* <Link to="/recruiter-login"><button type="submit" >SIGNUP</button></Link> */}
             
         </div>
 

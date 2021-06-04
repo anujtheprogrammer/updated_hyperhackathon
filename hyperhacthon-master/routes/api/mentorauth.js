@@ -9,7 +9,7 @@ const Mentor = require('../../models/Mentor');
 
 
 
-// @router   POST api/mentorlogin
+// @router   POST api/mentorauth
 // @desc     login mentor and recruiter & get token
 // @access   public
 
@@ -26,7 +26,7 @@ router.post('/', [
     const { email, password} = req.body;
 
     try {
-        //console.log("hii");
+        console.log("hiiooo");
         let mentor = await Mentor.findOne({ email});
 
         if(!mentor){
@@ -50,7 +50,7 @@ router.post('/', [
             {expiresIn : 3600000}, 
             (err ,token)=>{
                 if(err) throw err;
-                res.json({ token });
+                res.json({ token,name:mentor.name,email });
             });
 
     } catch (err) {
