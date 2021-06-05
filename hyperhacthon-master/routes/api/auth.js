@@ -30,7 +30,7 @@ router.post('/', [
         if(!learner){
             res.status(400).json({errors: [{msg: 'invalid credentials' }] });
         }
-
+        //console.log("hiii");
         console.log(learner);
 
         const isMatch = await bcrypt.compare(password,learner.password);
@@ -38,7 +38,7 @@ router.post('/', [
         if(!isMatch){
             res.status(400).json({errors: [{msg: 'invalid credentials' }] }); 
         }
-
+        //console.log("hiii");
         const payload = {
             learner: {
                 id : learner.id,

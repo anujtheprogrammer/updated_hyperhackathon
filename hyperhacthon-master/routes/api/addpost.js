@@ -72,49 +72,50 @@ router.get('/', async(req, res) => {
 // @route   PUT api/addpost/applied/:id
 // @desc    apply for a post
 // @access  Private
+// these api will not work now
+// router.put('/applied/:id', auth, async(req, res) =>{
+//     try {
+//         const post = await Post.findById(req.params.id);
 
-router.put('/applied/:id', auth, async(req, res) =>{
-    try {
-        const post = await Post.findById(req.params.id);
-
-        // check if the post is already applied
-        if(post.applied.filter(like => String(like.user) === req.user.id).length >0){
-            return res.status(400).json({msg:'post already applied'});
-        }
-        post.applied.unshift({user: req.user.id});
-        await post.save();
-        res.json(post.applied);
-    } catch (err) {
-        console.error(err.message);
-        res.status(500).send('server error');
-    }
-});
+//         // check if the post is already applied
+//         if(post.applied.filter(like => String(like.user) === req.user.id).length >0){
+//             return res.status(400).json({msg:'post already applied'});
+//         }
+//         post.applied.unshift({user: req.user.id});
+//         await post.save();
+//         res.json(post.applied);
+//     } catch (err) {
+//         console.error(err.message);
+//         res.status(500).send('server error');
+//     }
+// });
 
 
 
 // @route   PUT api/addpost/withdraw/:id
 // @desc    withdraw application for a post
 // @access  Private
-router.put('/withdraw/:id', auth, async(req, res) =>{
-    try {
-        const post = await Post.findById(req.params.id);
+// these api will not work now
+// router.put('/withdraw/:id', auth, async(req, res) =>{
+//     try {
+//         const post = await Post.findById(req.params.id);
 
-        // check if the post is already applied
-        if(post.applied.filter(like => String(like.user) === req.user.id).length === 0){
-            return res.status(400).json({msg:'Post is not yet been applied'});
-        }
+//         // check if the post is already applied
+//         if(post.applied.filter(like => String(like.user) === req.user.id).length === 0){
+//             return res.status(400).json({msg:'Post is not yet been applied'});
+//         }
 
-        // Get remove index
-        const removeIndex = post.applied.map(like => String(like.user)).indexOf(req.user.id);
-        post.applied.splice(removeIndex, 1);
+//         // Get remove index
+//         const removeIndex = post.applied.map(like => String(like.user)).indexOf(req.user.id);
+//         post.applied.splice(removeIndex, 1);
 
-        await post.save();
-        res.json(post.applied);
-    } catch (err) {
-        console.error(err.message);
-        res.status(500).send('server error');
-    }
-});
+//         await post.save();
+//         res.json(post.applied);
+//     } catch (err) {
+//         console.error(err.message);
+//         res.status(500).send('server error');
+//     }
+// });
 
 
 module.exports = router;

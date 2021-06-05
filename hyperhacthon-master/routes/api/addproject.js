@@ -74,7 +74,6 @@ router.get('/', auth, async(req, res) => {
 // @desc    give feedback on a project
 // @access  Private
 
-
 router.post('/feedback/:id',
     [
         auth, 
@@ -89,6 +88,7 @@ router.post('/feedback/:id',
         if(!errors.isEmpty()){
             return res.status(400).json({errors: errors.array()});
         }
+        //console.log("hiii");
         try {
             const user = await Learner.findById(req.user.id).select('-password');
             
@@ -99,7 +99,7 @@ router.post('/feedback/:id',
                 name: user.name,
                 user: req.user.id
             };
-
+            //console.log("hiii");
             post.feedback.unshift(newFeedback);
             console.log(feedback);
             await post.save();

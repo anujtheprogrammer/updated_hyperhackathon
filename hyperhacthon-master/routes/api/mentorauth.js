@@ -22,7 +22,7 @@ router.post('/', [
     if(!errors.isEmpty()){
         return res.status(400).json({errors : errors.array() });
     }
-
+    //console.log("hiii");
     const { email, password} = req.body;
 
     try {
@@ -32,7 +32,7 @@ router.post('/', [
         if(!mentor){
             res.status(400).json({errors: [{msg: 'invalid credentials' }] });
         }
-
+        //console.log("hiii");
         const isMatch = await bcrypt.compare(password,mentor.password);
 
         if(!isMatch){
